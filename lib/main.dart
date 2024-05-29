@@ -11,6 +11,7 @@ import 'firebase_options.dart';
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp(
+    name: 'notify',
     options: DefaultFirebaseOptions.currentPlatform,
  );
   await Supabase.initialize(

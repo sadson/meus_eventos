@@ -71,7 +71,7 @@ class _HomePageState extends State<HomePage> {
       appBar: AppBar(
         title: const Text('Meus eventos'),
         actions: [IconButton(onPressed: () async {
-          await supabase.auth.signOut();
+          _signOut();
         }, icon: const Icon(Icons.logout))],
       ),
       body: Column(
