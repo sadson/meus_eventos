@@ -1,43 +1,46 @@
 import 'package:flutter/material.dart';
+import 'package:meus_eventos/componentes/item_menu.dart';
 
 class Menu extends StatelessWidget {
   const Menu({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return Drawer(
-      // Add a ListView to the drawer. This ensures the user can scroll
-      // through the options in the drawer if there isn't enough vertical
-      // space to fit everything.
-      child: ListView(
-        // Important: Remove any padding from the ListView.
-        padding: EdgeInsets.zero,
-        children: [
-          const DrawerHeader(
-            child: Text(style: TextStyle(color: Colors.white), 'Menu'),
-          ),
-          ListTile(
-            title: const Text(style: TextStyle(color: Colors.white), 'Inicio'),
-            onTap: () {
-              Navigator.pushNamed(context, '/');
-            },
-          ),
-          ListTile(
-            title:
-                const Text(style: TextStyle(color: Colors.white), 'Calendário'),
-            onTap: () {
-              Navigator.pushNamed(context, '/calendario');
-            },
-          ),
-          ListTile(
-            title: const Text(
-                style: TextStyle(color: Colors.white), 'Informações'),
-            onTap: () {
-              Navigator.pushNamed(context, '/info');
-            },
-          ),
-        ],
-      ),
+    List<ItemMenu> submenus = [
+      ItemMenu(
+          title: 'Inicio',
+          iconData: Icons.home,
+          background: Colors.blue,
+          route: '/home'),
+      ItemMenu(
+          title: 'Eventos',
+          iconData: Icons.event,
+          background: Colors.blue,
+          route: '/calendario'),
+      ItemMenu(
+          title: 'Cotas',
+          iconData: Icons.monetization_on,
+          background: Colors.blue,
+          route: '/home'),
+      ItemMenu(
+          title: 'Anuncios gerais',
+          iconData: Icons.announcement,
+          background: Colors.blue,
+          route: '/home'),
+      ItemMenu(
+          title: 'Informações',
+          iconData: Icons.info,
+          background: Colors.blue,
+          route: '/info'),
+    ];
+    return GridView.count(
+      crossAxisSpacing: 8,
+      mainAxisSpacing: 8,
+      padding: EdgeInsets.all(16),
+      crossAxisCount: 2,
+      children: List.generate(submenus.length, (index) {
+        return submenus[index];
+      }),
     );
   }
 }

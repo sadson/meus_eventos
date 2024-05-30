@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:meus_eventos/componentes/app_bar_meus_eventos.dart';
+import 'package:table_calendar/table_calendar.dart';
 
 class CalendarioPage extends StatefulWidget {
   const CalendarioPage({super.key});
@@ -10,14 +12,14 @@ class CalendarioPage extends StatefulWidget {
 class _CalendarioPageState extends State<CalendarioPage> {
   @override
   Widget build(BuildContext context) {
-    return CalendarDatePicker(
-      initialDate: DateTime.now(),
-      firstDate: DateTime.now(),
-      lastDate: DateTime.now(),
-      initialCalendarMode: DatePickerMode.day,
-      onDateChanged: (value) {
-        
-      },
+    return Scaffold(
+      appBar: const AppBarMeusEventos(),
+      body: TableCalendar(
+        locale: Localizations.localeOf(context).languageCode,  
+        firstDay: DateTime.utc(2010, 10, 16),
+        lastDay: DateTime.utc(2030, 3, 14),
+        focusedDay: DateTime.now(),
+      ),
     );
   }
 }
