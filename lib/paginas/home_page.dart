@@ -3,8 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:meus_eventos/componentes/app_bar_meus_eventos.dart';
 import 'package:meus_eventos/componentes/menu.dart';
 import 'package:meus_eventos/main.dart';
-import 'package:meus_eventos/providers/usuario_provider.dart';
-import 'package:provider/provider.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
 
 class HomePage extends StatefulWidget {
@@ -60,7 +58,7 @@ class _HomePageState extends State<HomePage> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return const Scaffold(
       appBar: AppBarMeusEventos(),
       body: Menu(),
     );
